@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    
+    <div class="name-screen" id="nameScreen">
+        <div class="name-container">
+            <h2>Enter Your Name</h2>
+            <input type="text" id="playerNameInput" placeholder="Your name" maxlength="15">
+            <div class="difficulty-selector">
+                <h3>Select Difficulty</h3>
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn" data-level="easy">Easy</button>
+                    <button class="difficulty-btn" data-level="hard">Hard</button>
+                    <button class="difficulty-btn" data-level="impossible">Impossible</button>
+                </div>
+            </div>
+            <button class="start-button" onclick="startGame()">Start Game</button>
+        </div>
+    </div>
+    
+    <div class="container" style="display: none;">
+        <div class="game-wrapper">
+            <button class="settings-btn">⚙️</button>
+            <h1>Tic-Tac-Toe</h1>
+            <div class="game-info">
+                <div class="difficulty-indicator" id="difficultyToggle">
+                    <div class="mode-dropdown">
+                        <div class="mode-option easy" data-mode="easy">
+                            😊 Easy Mode
+                        </div>
+                        <div class="mode-option hard" data-mode="hard">
+                            😈 Hard Mode
+                        </div>
+                        <div class="mode-option impossible" data-mode="impossible">
+                            👿 Impossible Mode
+                        </div>
+                    </div>
+                </div>
+                <div class="scorecard">
+                    <div class="score-item">
+                        <span class="player-icon">👨‍💻</span>
+                        <span class="score" id="playerScore">0</span>
+                        <span class="player-name editable" id="humanName" onclick="editName(this)">U</span>
+                    </div>
+                    <div class="status"></div>
+                    <div class="score-item">
+                        <span class="player-icon">🤖</span>
+                        <span class="score" id="aiScore">0</span>
+                        <span class="player-name editable" id="computerName" onclick="editName(this)">Chiti</span>
+                    </div>
+                </div>
+            </div>
+            <div class="game-board" id="gameBoard">
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+            </div>
+        </div>
+        
+        <div class="popup-message" id="popupMessage" style="display: none;">
+            <div class="popup-text"></div>
+        </div>
+    </div>
+    <script src="./js/particles.js"></script>
+    <script src="./js/matrix.js"></script>
+    <script src="./js/script.js"></script>
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-content">
+            <button class="close-settings">×</button>
+            <h2>Settings</h2>
+            <div class="settings-section">
+                <h3>Game Settings</h3>
+                <div class="setting-item">
+                    <label>Player Name</label>
+                    <div class="name-edit-container">
+                        <input type="text" id="settingsNameInput" maxlength="15" value="">
+                        <button class="save-name-btn" onclick="saveNameFromSettings()">Save</button>
+                    </div>
+                </div>
+                <div class="setting-item">
+                    <label>Difficulty Level</label>
+                    <div class="difficulty-buttons">
+                        <button class="difficulty-btn" data-level="easy">Easy</button>
+                        <button class="difficulty-btn" data-level="hard">Hard</button>
+                        <button class="difficulty-btn" data-level="impossible">Impossible</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
